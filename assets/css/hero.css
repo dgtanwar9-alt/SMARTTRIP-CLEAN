@@ -1,0 +1,437 @@
+/* ============================================================
+   PREMIUM INDIA HERO SECTION
+============================================================ */
+
+#hero{
+    position:relative;
+
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+        rgba(4,10,18,0.72),
+        rgba(4,10,18,0.88)
+    ),
+
+    url('https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1800&auto=format&fit=crop');
+
+    background-size:cover;
+    background-position:center center;
+    background-repeat:no-repeat;
+}
+
+
+/* ============================================================
+   OVERLAY
+============================================================ */
+
+.hero-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+    radial-gradient(circle at top right,
+    rgba(196,155,99,0.12),
+    transparent 28%),
+
+    radial-gradient(circle at bottom left,
+    rgba(255,255,255,0.04),
+    transparent 30%);
+
+    z-index:1;
+}
+
+
+/* LIGHT EFFECT */
+
+.hero-light{
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    top:-180px;
+    right:-120px;
+
+    background:
+    radial-gradient(
+        circle,
+        rgba(196,155,99,0.18),
+        transparent 72%
+    );
+
+    z-index:1;
+
+    pointer-events:none;
+
+    filter:blur(10px);
+}
+
+
+/* NOISE TEXTURE */
+
+.hero-noise{
+    position:absolute;
+    inset:0;
+
+    opacity:0.04;
+
+    background-image:
+    radial-gradient(#ffffff 0.7px, transparent 0.7px);
+
+    background-size:18px 18px;
+
+    z-index:1;
+}
+
+
+/* ============================================================
+   CONTAINER
+============================================================ */
+
+.container{
+    width:min(92%,1380px);
+
+    margin:auto;
+
+    position:relative;
+
+    z-index:2;
+}
+
+
+/* ============================================================
+   HERO CONTENT
+============================================================ */
+
+.hero-content{
+    width:min(820px,100%);
+
+    padding-top:120px;
+    padding-bottom:90px;
+}
+
+
+/* BADGE */
+
+.hero-badge{
+    display:inline-flex;
+    align-items:center;
+
+    padding:12px 22px;
+
+    border-radius:100px;
+
+    border:1px solid rgba(196,155,99,0.24);
+
+    background:rgba(255,255,255,0.05);
+
+    backdrop-filter:blur(14px);
+
+    color:#d5b080;
+
+    font-size:13px;
+    font-weight:700;
+
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+
+    margin-bottom:34px;
+}
+
+
+/* ============================================================
+   TITLE
+============================================================ */
+
+.hero-title{
+    color:#f8f4ee;
+
+    font-size:88px;
+    font-weight:800;
+
+    line-height:1.05;
+
+    letter-spacing:-3px;
+}
+
+.hero-title span{
+    color:#c49b63;
+}
+
+
+/* ============================================================
+   SUBTEXT
+============================================================ */
+
+.hero-sub{
+    margin-top:34px;
+
+    max-width:760px;
+
+    color:#c3c8d1;
+
+    font-size:22px;
+    line-height:1.9;
+    font-weight:400;
+}
+
+
+/* ============================================================
+   BUTTON GROUP
+============================================================ */
+
+.hero-buttons{
+    display:flex;
+    align-items:center;
+    gap:22px;
+
+    margin-top:48px;
+
+    flex-wrap:wrap;
+}
+
+
+/* PRIMARY BUTTON */
+
+.hero-btn-primary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:18px 34px;
+
+    border-radius:100px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #b98a4d,
+        #d8b17b
+    );
+
+    color:#111;
+
+    font-size:14px;
+    font-weight:700;
+
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 14px 30px rgba(196,155,99,0.3);
+}
+
+.hero-btn-primary:hover{
+    transform:translateY(-4px);
+
+    box-shadow:
+    0 18px 45px rgba(196,155,99,0.42);
+}
+
+
+/* SECONDARY BUTTON */
+
+.hero-btn-secondary{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:18px 34px;
+
+    border-radius:100px;
+
+    border:1px solid rgba(255,255,255,0.12);
+
+    background:rgba(255,255,255,0.04);
+
+    backdrop-filter:blur(12px);
+
+    color:#f5f5f5;
+
+    font-size:14px;
+    font-weight:700;
+
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    transition:0.35s ease;
+}
+
+.hero-btn-secondary:hover{
+    background:rgba(255,255,255,0.08);
+
+    border-color:rgba(196,155,99,0.3);
+
+    transform:translateY(-4px);
+}
+
+
+/* ============================================================
+   INFO CARDS
+============================================================ */
+
+.hero-info{
+    display:flex;
+    align-items:center;
+
+    gap:24px;
+
+    margin-top:80px;
+
+    flex-wrap:wrap;
+}
+
+
+/* CARD */
+
+.info-card{
+    min-width:170px;
+
+    padding:24px 26px;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,0.06),
+        rgba(255,255,255,0.03)
+    );
+
+    border:1px solid rgba(255,255,255,0.08);
+
+    backdrop-filter:blur(18px);
+
+    transition:0.35s ease;
+}
+
+.info-card:hover{
+    transform:translateY(-6px);
+
+    border-color:rgba(196,155,99,0.22);
+}
+
+
+/* NUMBER */
+
+.info-card h3{
+    color:#f7f2ea;
+
+    font-size:34px;
+    font-weight:800;
+
+    margin-bottom:10px;
+}
+
+
+/* LABEL */
+
+.info-card p{
+    color:#aeb5c0;
+
+    font-size:14px;
+    font-weight:500;
+
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+
+/* ============================================================
+   BOTTOM FADE
+============================================================ */
+
+.hero-bottom-fade{
+    position:absolute;
+
+    left:0;
+    right:0;
+    bottom:0;
+
+    height:180px;
+
+    background:
+    linear-gradient(
+        to bottom,
+        transparent,
+        #071018
+    );
+
+    z-index:2;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media(max-width:992px){
+
+    .hero-title{
+        font-size:68px;
+    }
+
+    .hero-sub{
+        font-size:19px;
+    }
+
+    .hero-info{
+        gap:18px;
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    #hero{
+        min-height:auto;
+    }
+
+    .hero-content{
+        padding-top:140px;
+        padding-bottom:90px;
+    }
+
+    .hero-title{
+        font-size:48px;
+
+        line-height:1.15;
+
+        letter-spacing:-1px;
+    }
+
+    .hero-sub{
+        font-size:17px;
+        line-height:1.8;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .hero-btn-primary,
+    .hero-btn-secondary{
+        width:100%;
+    }
+
+    .hero-info{
+        flex-direction:column;
+        align-items:stretch;
+    }
+
+    .info-card{
+        width:100%;
+    }
+
+}

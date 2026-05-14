@@ -1,0 +1,369 @@
+/* ============================================================
+   PREMIUM OFFICIAL NAVBAR
+============================================================ */
+
+nav{
+    position:fixed;
+
+    top:0;
+    left:0;
+    right:0;
+
+    z-index:1000;
+
+    padding:22px 0;
+
+    transition:all 0.4s ease;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(5,10,18,0.78),
+        rgba(5,10,18,0.18)
+    );
+
+    backdrop-filter:blur(14px);
+
+    border-bottom:1px solid rgba(255,255,255,0.04);
+}
+
+
+/* SCROLL EFFECT */
+
+nav.scrolled{
+
+    padding:14px 0;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(7,15,24,0.96),
+        rgba(7,15,24,0.92)
+    );
+
+    backdrop-filter:blur(24px);
+
+    border-bottom:1px solid rgba(196,155,99,0.14);
+
+    box-shadow:
+    0 8px 40px rgba(0,0,0,0.45);
+}
+
+
+/* NAV CONTAINER */
+
+.nav-inner{
+
+    max-width:1380px;
+
+    margin:auto;
+
+    padding:0 42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+
+/* LOGO */
+
+.nav-logo{
+
+    font-family:'Cinzel', serif;
+
+    font-size:30px;
+
+    font-weight:900;
+
+    letter-spacing:2px;
+
+    color:#f7f2ea;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.nav-logo:hover{
+    transform:scale(1.03);
+}
+
+.nav-logo span{
+    color:#c49b63;
+}
+
+
+/* NAV LINKS */
+
+.nav-links{
+
+    display:flex;
+    align-items:center;
+
+    gap:42px;
+
+    list-style:none;
+}
+
+
+/* LINK */
+
+.nav-links a{
+
+    position:relative;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+    color:#c6cbd3;
+
+    transition:0.3s;
+}
+
+
+/* HOVER EFFECT */
+
+.nav-links a::after{
+
+    content:'';
+
+    position:absolute;
+
+    left:0;
+    bottom:-10px;
+
+    width:0%;
+    height:2px;
+
+    border-radius:20px;
+
+    background:#c49b63;
+
+    transition:0.35s ease;
+}
+
+.nav-links a:hover{
+    color:#ffffff;
+}
+
+.nav-links a:hover::after{
+    width:100%;
+}
+
+
+/* CTA BUTTON */
+
+.nav-cta{
+    margin-left:24px;
+}
+
+
+/* PREMIUM BUTTON */
+
+.nav-button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:100px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #b98a4d,
+        #d8b17b
+    );
+
+    color:#111;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+    cursor:pointer;
+
+    transition:0.35s ease;
+
+    box-shadow:
+    0 10px 25px rgba(196,155,99,0.28);
+}
+
+.nav-button:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 16px 35px rgba(196,155,99,0.4);
+}
+
+
+/* HAMBURGER */
+
+.hamburger{
+
+    display:none;
+
+    flex-direction:column;
+
+    gap:5px;
+
+    background:none;
+
+    border:none;
+
+    cursor:pointer;
+}
+
+
+/* HAMBURGER LINES */
+
+.hamburger span{
+
+    width:26px;
+    height:2px;
+
+    border-radius:20px;
+
+    background:#f5f5f5;
+
+    transition:0.3s;
+}
+
+
+/* MOBILE MENU */
+
+.mobile-menu{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:38px;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(5,10,18,0.98),
+        rgba(10,18,30,0.98)
+    );
+
+    backdrop-filter:blur(25px);
+
+    z-index:999;
+}
+
+.mobile-menu.open{
+    display:flex;
+}
+
+
+/* MOBILE LINKS */
+
+.mobile-menu a{
+
+    font-family:'Cinzel', serif;
+
+    font-size:28px;
+
+    letter-spacing:3px;
+
+    text-transform:uppercase;
+
+    color:#f7f2ea;
+
+    transition:0.3s;
+}
+
+.mobile-menu a:hover{
+    color:#c49b63;
+}
+
+
+/* CLOSE BUTTON */
+
+.close-menu{
+
+    position:absolute;
+
+    top:28px;
+    right:32px;
+
+    background:none;
+
+    border:none;
+
+    color:#fff;
+
+    font-size:34px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.close-menu:hover{
+    transform:rotate(90deg);
+    color:#c49b63;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media(max-width:992px){
+
+    .nav-links{
+        display:none;
+    }
+
+    .hamburger{
+        display:flex;
+    }
+
+    .nav-button{
+        display:none;
+    }
+
+}
+
+
+@media(max-width:768px){
+
+    nav{
+        padding:18px 0;
+    }
+
+    .nav-inner{
+        padding:0 20px;
+    }
+
+    .nav-logo{
+        font-size:24px;
+    }
+
+    .mobile-menu a{
+        font-size:22px;
+    }
+
+}
