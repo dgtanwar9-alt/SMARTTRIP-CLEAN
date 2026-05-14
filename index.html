@@ -1,1762 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Smart Trip – India's premium travel planner. Discover hotels, itineraries, hidden gems, food guides, and exclusive deals for every destination.">
-    <meta name="keywords" content="India travel, Jaipur trip, Rajasthan tour, hotel booking, travel planner, hidden gems India">
-    <title>Smart Trip – Plan Your Perfect Journey</title>
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&amp;family=Raleway:ital,wght@0,300;0,400;0,500;0,600;1,300&amp;family=DM+Serif+Display&amp;display=swap" rel="stylesheet">
-    <!-- ============================================================NAVBAR============================================================ -->
-    <!-- CSS -->
-       <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="assets/css/auth.css">
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Smart Trip</title>
+
+  <!-- APP ICON -->
+
+  <link rel="icon" type="image/png" href="assets/images/smarttrip-logo.png">
+
+  <!-- GOOGLE FONT -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+  <style>
+
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
+
+    html,
+    body{
+        width:100%;
+        height:100%;
+        overflow:hidden;
+
+        font-family:'Poppins',sans-serif;
+    }
+
+
+    body{
+
+        background:
+        linear-gradient(
+            135deg,
+            #071018 0%,
+            #0f1d2e 100%
+        );
+
+    }
+
+
+    /* =========================================================
+       SPLASH SCREEN
+    ========================================================= */
+
+    .splash-screen{
+
+        position:relative;
+
+        width:100%;
+        height:100vh;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        overflow:hidden;
+    }
+
+
+    /* LIGHT EFFECTS */
+
+    .light{
+
+        position:absolute;
+
+        width:500px;
+        height:500px;
+
+        border-radius:50%;
+
+        filter:blur(100px);
+
+        opacity:0.22;
+    }
+
+    .light-1{
+
+        top:-120px;
+        right:-120px;
+
+        background:#c49b63;
+    }
+
+    .light-2{
+
+        bottom:-140px;
+        left:-120px;
+
+        background:#1f8fff;
+    }
+
+
+    /* CONTENT */
+
+    .splash-content{
+
+        position:relative;
+
+        z-index:2;
+
+        width:100%;
+
+        display:flex;
+        flex-direction:column;
+
+        justify-content:center;
+        align-items:center;
+
+        text-align:center;
+
+        animation:fadeUp 1.2s ease;
+    }
+
+
+    /* LOGO WRAPPER */
+
+    .logo-wrapper{
+
+        width:200px;
+        height:200px;
+
+        display:flex;
+        justify-content:center;
+        align-items:center;
+
+        border-radius:50%;
+
+        background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.08),
+            rgba(255,255,255,0.03)
+        );
+
+        backdrop-filter:blur(25px);
+
+        border:1px solid rgba(255,255,255,0.08);
+
+        box-shadow:
+        0 20px 60px rgba(0,0,0,0.45),
+        0 0 60px rgba(196,155,99,0.15);
+
+        animation:float 3s ease-in-out infinite;
+    }
+
+
+    /* LOGO */
+
+    .logo{
+
+        width:130px;
+        height:130px;
+
+        object-fit:contain;
+
+        display:block;
+    }
+
+
+    /* TITLE */
+
+    .title{
+
+        margin-top:38px;
+
+        color:#f8f4ee;
+
+        font-size:62px;
+        font-weight:800;
+
+        letter-spacing:-2px;
+    }
+
+    .title span{
+        color:#c49b63;
+    }
+
+
+    /* SUBTITLE */
+
+    .subtitle{
+
+        margin-top:14px;
+
+        color:#b6c0ca;
+
+        font-size:18px;
+
+        letter-spacing:1px;
+    }
+
+
+    /* LOADER */
+
+    .loader{
+
+        width:70px;
+        height:70px;
+
+        margin-top:42px;
+
+        border-radius:50%;
+
+        border:4px solid rgba(255,255,255,0.08);
+
+        border-top:4px solid #c49b63;
+
+        animation:spin 1s linear infinite;
+    }
+
+
+    /* ANIMATIONS */
+
+    @keyframes spin{
+
+        100%{
+            transform:rotate(360deg);
+        }
+
+    }
+
+
+    @keyframes fadeUp{
+
+        from{
+            opacity:0;
+            transform:translateY(40px);
+        }
+
+        to{
+            opacity:1;
+            transform:translateY(0);
+        }
+
+    }
+
+
+    @keyframes float{
+
+        0%,100%{
+            transform:translateY(0px);
+        }
+
+        50%{
+            transform:translateY(-10px);
+        }
+
+    }
+
+
+    /* MOBILE */
+
+    @media(max-width:768px){
+
+        .logo-wrapper{
+
+            width:160px;
+            height:160px;
+
+        }
+
+        .logo{
+
+            width:100px;
+            height:100px;
+
+        }
+
+        .title{
+
+            font-size:44px;
+
+        }
+
+        .subtitle{
+
+            font-size:15px;
+
+        }
+
+    }
+
+  </style>
+
 </head>
+
 <body>
-     <!-- ============================================================
-       NAVBAR
-  ============================================================ -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <div class="nav-logo">SMART<span>TRIP</span></div>
-      <ul class="nav-links">
-        <li><a href="#destinations">Destinations</a></li>
-        <li><a href="#planner">Planner</a></li>
-        <li><a href="#hotels">Hotels</a></li>
-        <li><a href="#food">Food</a></li>
-        <li><a href="#deals">Deals</a></li>
-        <li><a href="#hidden-gems">Hidden Gems</a></li>
-      </ul>
-      <a href="#planner" class="btn-gold nav-cta">Plan Trip ✦</a>
-      <button class="hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div class="mobile-menu" id="mobileMenu">
-    <button class="close-menu" id="closeMenu">✕</button>
-    <a href="#destinations" onclick="closeMobileMenu()">Destinations</a>
-    <a href="#planner" onclick="closeMobileMenu()">Planner</a>
-    <a href="#hotels" onclick="closeMobileMenu()">Hotels</a>
-    <a href="#food" onclick="closeMobileMenu()">Food</a>
-    <a href="#hidden-gems" onclick="closeMobileMenu()">Hidden Gems</a>
-    <a href="#deals" onclick="closeMobileMenu()">Deals</a>
-  </div>
-
-<!-- ============================================================
-     PREMIUM INDIA HERO SECTION
-============================================================ -->
-
-<section id="hero">
-
-  <!-- BACKGROUND LAYERS -->
-
-  <div class="hero-overlay"></div>
-
-  <div class="hero-light"></div>
-
-  <div class="hero-noise"></div>
 
 
-  <!-- MAIN CONTENT -->
+<!-- SPLASH SCREEN -->
 
-  <div class="container">
-
-    <div class="hero-content">
-
-      <!-- TOP LABEL -->
-
-      <div class="hero-badge">
-        Incredible India • Curated Luxury Journeys
-      </div>
+<section class="splash-screen">
 
 
-      <!-- MAIN TITLE -->
+  <!-- LIGHTS -->
 
-      <h1 class="hero-title">
+  <div class="light light-1"></div>
 
-        Experience India <br>
-
-        Beyond the <span>Ordinary</span>
-
-      </h1>
+  <div class="light light-2"></div>
 
 
-      <!-- SUBTEXT -->
+  <!-- CONTENT -->
 
-      <p class="hero-sub">
-
-        From the royal palaces of Rajasthan and the spiritual ghats of Varanasi
-        to Himalayan escapes, coastal retreats, and vibrant city life —
-        discover handcrafted travel experiences designed for modern explorers.
-
-      </p>
+  <div class="splash-content">
 
 
-      <!-- BUTTONS -->
+    <!-- LOGO -->
 
-      <div class="hero-buttons">
+    <div class="logo-wrapper">
 
-        <a href="#destinations" class="hero-btn-primary">
-
-          Explore Destinations
-
-        </a>
-
-
-        <a href="#planner" class="hero-btn-secondary">
-
-          Plan Your Journey
-
-        </a>
-
-      </div>
-
-
-      <!-- INFO STRIP -->
-
-      <div class="hero-info">
-
-        <div class="info-card">
-
-          <h3>28+</h3>
-
-          <p>States Covered</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-          <h3>15K+</h3>
-
-          <p>Verified Travellers</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-          <h3>450+</h3>
-
-          <p>Luxury Stays</p>
-
-        </div>
-
-
-        <div class="info-card">
-
-          <h3>4.9★</h3>
-
-          <p>Average Rating</p>
-
-        </div>
-
-      </div>
+      <img
+        src="assets/images/smarttrip-logo.png"
+        alt="Smart Trip Logo"
+        class="logo"
+      >
 
     </div>
 
-  </div>
 
+    <!-- TITLE -->
 
-  <!-- BOTTOM FADE -->
+    <h1 class="title">
 
-  <div class="hero-bottom-fade"></div>
+      Smart <span>Trip</span>
 
-</section>
+    </h1>
 
-  <!-- ============================================================
-       FEATURE 1: SMART TRIP PLANNER
-  ============================================================ -->
-  <section id="planner">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">✦ AI-Powered</span>
-        <h2 class="section-title">Smart <span>Trip Planner</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">Tell us your preferences and we'll craft the perfect itinerary for your dream trip.</p>
-      </div>
-      <div class="planner-card reveal">
-        <div class="planner-grid">
-          <!-- State / City -->
-          <div class="planner-field">
-            <label>🗺 Destination</label>
-            <select id="pl-city">
-              <option value="">Select City / State</option>
-              <option value="Jaipur">Jaipur, Rajasthan</option>
-              <option value="Udaipur">Udaipur, Rajasthan</option>
-              <option value="Jodhpur">Jodhpur, Rajasthan</option>
-              <option value="Delhi">New Delhi</option>
-              <option value="Goa">Goa</option>
-              <option value="Shimla">Shimla, Himachal</option>
-              <option value="Varanasi">Varanasi, UP</option>
-              <option value="Mumbai">Mumbai, Maharashtra</option>
-              <option value="Kerala">Kerala (God's Own Country)</option>
-              <option value="Manali">Manali, Himachal</option>
-            </select>
-          </div>
-          <!-- Budget -->
-          <div class="planner-field">
-            <label>💰 Budget (per person)</label>
-            <select id="pl-budget">
-              <option value="">Select Budget</option>
-              <option value="budget">Budget – Under ₹5,000</option>
-              <option value="mid">Mid-Range – ₹5K–₹15K</option>
-              <option value="luxury">Luxury – ₹15K+</option>
-            </select>
-          </div>
-          <!-- Days -->
-          <div class="planner-field">
-            <label>📅 Number of Days</label>
-            <select id="pl-days">
-              <option value="">Select Duration</option>
-              <option value="1">1 Day (Quick Getaway)</option>
-              <option value="2">2 Days (Weekend)</option>
-              <option value="3">3 Days</option>
-              <option value="5">5 Days</option>
-              <option value="7">7 Days (Full Week)</option>
-              <option value="10">10 Days (Explorer)</option>
-            </select>
-          </div>
-          <!-- Group Type -->
-          <div class="planner-field">
-            <label>👥 Travel Type</label>
-            <div class="planner-type-group" id="travelType">
-              <button class="type-btn active" data-type="Solo">🧳 Solo</button>
-              <button class="type-btn" data-type="Couple">💑 Couple</button>
-              <button class="type-btn" data-type="Family">👨&zwj;👩&zwj;👧 Family</button>
-              <button class="type-btn" data-type="Friends">🎉 Friends</button>
-            </div>
-          </div>
-        </div>
-        <div class="planner-actions">
-          <button class="btn-gold" onclick="generateItinerary()">Generate Itinerary ✦</button>
-          <button class="btn-outline" onclick="clearPlanner()">Clear</button>
-        </div>
-        <!-- Itinerary Result -->
-        <div id="itinerary-result">
-          <div class="itinerary-header">
-            <div>
-              <div class="section-label" id="itin-badge">Your Trip</div>
-              <h3 class="section-title" style="font-size:26px;" id="itin-title">Sample Itinerary</h3>
-            </div>
-            <div style="text-align:right">
-              <div class="badge" id="itin-budget-badge">Mid-Range</div>
-            </div>
-          </div>
-          <div class="itinerary-days" id="itin-days"></div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  
-<!-- ============================================================
-       TRENDING DESTINATIONS
-  ============================================================ -->
-   <section id="destinations">
+    <!-- SUBTITLE -->
 
-  <div class="container">
+    <p class="subtitle">
 
-    <div class="section-header reveal">
+      Explore India Differently
 
-      <span class="section-label">✦ Most Visited</span>
+    </p>
 
-      <h2 class="section-title">
-        Trending <span>Destinations</span>
-      </h2>
 
-      <div class="gold-line"></div>
+    <!-- LOADER -->
 
-      <p class="section-sub">
-        Handpicked cities loved by thousands of travellers
-        for their culture, beauty, and food.
-      </p>
-
-    </div>
-
-
-    <div class="dest-grid reveal">
-
-
-      <!-- RAJASTHAN -->
-
-      <a href="rajasthan.html" class="dest-link">
-
-        <div class="dest-card">
-
-          <div class="dest-img dest-img-placeholder grad-jaipur">
-            🏰
-          </div>
-
-          <div class="dest-overlay"></div>
-
-          <div class="dest-content">
-
-            <div class="dest-state">Rajasthan</div>
-
-            <div class="dest-name">Jaipur</div>
-
-            <div class="dest-meta">
-
-              <div class="dest-rating">
-                ⭐ 4.8 · 3,240 reviews
-              </div>
-
-              <span class="dest-tag">
-                Pink City
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </a>
-
-
-
-      <!-- GOA -->
-
-      <a href="goa.html" class="dest-link">
-
-        <div class="dest-card">
-
-          <div class="dest-img dest-img-placeholder grad-goa">
-            🌊
-          </div>
-
-          <div class="dest-overlay"></div>
-
-          <div class="dest-content">
-
-            <div class="dest-state">Goa</div>
-
-            <div class="dest-name">Goa</div>
-
-            <div class="dest-meta">
-
-              <div class="dest-rating">
-                ⭐ 4.7 · 5,600 reviews
-              </div>
-
-              <span class="dest-tag">
-                Beach Paradise
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </a>
-
-
-
-      <!-- DELHI -->
-
-      <a href="newdelhi.html" class="dest-link">
-
-        <div class="dest-card">
-
-          <div class="dest-img dest-img-placeholder grad-delhi">
-            🕌
-          </div>
-
-          <div class="dest-overlay"></div>
-
-          <div class="dest-content">
-
-            <div class="dest-state">Delhi</div>
-
-            <div class="dest-name">New Delhi</div>
-
-            <div class="dest-meta">
-
-              <div class="dest-rating">
-                ⭐ 4.6 · 4,100 reviews
-              </div>
-
-              <span class="dest-tag">
-                Capital
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </a>
-
-
-
-      <!-- SHIMLA -->
-
-      <a href="shimla.html" class="dest-link">
-
-        <div class="dest-card">
-
-          <div class="dest-img dest-img-placeholder grad-shimla">
-            ⛰
-          </div>
-
-          <div class="dest-overlay"></div>
-
-          <div class="dest-content">
-
-            <div class="dest-state">
-              Himachal Pradesh
-            </div>
-
-            <div class="dest-name">
-              Shimla
-            </div>
-
-            <div class="dest-meta">
-
-              <div class="dest-rating">
-                ⭐ 4.7 · 1,890 reviews
-              </div>
-
-              <span class="dest-tag">
-                Hill Station
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </a>
-
-
-
-      <!-- VARANASI -->
-
-      <a href="varanasi.html" class="dest-link">
-
-        <div class="dest-card">
-
-          <div class="dest-img dest-img-placeholder grad-varanasi">
-            🪔
-          </div>
-
-          <div class="dest-overlay"></div>
-
-          <div class="dest-content">
-
-            <div class="dest-state">
-              Uttar Pradesh
-            </div>
-
-            <div class="dest-name">
-              Varanasi
-            </div>
-
-            <div class="dest-meta">
-
-              <div class="dest-rating">
-                ⭐ 4.8 · 3,020 reviews
-              </div>
-
-              <span class="dest-tag">
-                Spiritual
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </a>
-
-
-    </div>
+    <div class="loader"></div>
 
   </div>
 
 </section>
-  
-  
-  <!-- States Slider -->
-  <section id="states" style="padding: 40px 0;">
-    <div class="container" style="margin-bottom:24px;">
-      <p class="section-label" style="margin:0">✦ All States</p>
-    </div>
-    <div class="states-track-wrap">
-      <div class="states-track" id="statesTrack">
-        <!-- duplicated for infinite scroll -->
-        <div class="state-chip"><span class="flag">🏰</span>Rajasthan</div>
-        <div class="state-chip"><span class="flag">🌊</span>Goa</div>
-        <div class="state-chip"><span class="flag">🏔</span>Himachal Pradesh</div>
-        <div class="state-chip"><span class="flag">🌿</span>Kerala</div>
-        <div class="state-chip"><span class="flag">🕌</span>Delhi</div>
-        <div class="state-chip"><span class="flag">🏛</span>Uttar Pradesh</div>
-        <div class="state-chip"><span class="flag">🌄</span>Uttarakhand</div>
-        <div class="state-chip"><span class="flag">🎭</span>Maharashtra</div>
-        <div class="state-chip"><span class="flag">🐅</span>Madhya Pradesh</div>
-        <div class="state-chip"><span class="flag">⛩</span>Tamil Nadu</div>
-        <div class="state-chip"><span class="flag">🌺</span>Karnataka</div>
-        <div class="state-chip"><span class="flag">🎨</span>Gujarat</div>
-        <div class="state-chip"><span class="flag">❄</span>Jammu & Kashmir</div>
-        <div class="state-chip"><span class="flag">🍵</span>Assam</div>
-        <div class="state-chip"><span class="flag">🔥</span>Andhra Pradesh</div>
-        <!-- Duplicate for seamless loop -->
-        <div class="state-chip"><span class="flag">🏰</span>Rajasthan</div>
-        <div class="state-chip"><span class="flag">🌊</span>Goa</div>
-        <div class="state-chip"><span class="flag">🏔</span>Himachal Pradesh</div>
-        <div class="state-chip"><span class="flag">🌿</span>Kerala</div>
-        <div class="state-chip"><span class="flag">🕌</span>Delhi</div>
-        <div class="state-chip"><span class="flag">🏛</span>Uttar Pradesh</div>
-        <div class="state-chip"><span class="flag">🌄</span>Uttarakhand</div>
-        <div class="state-chip"><span class="flag">🎭</span>Maharashtra</div>
-        <div class="state-chip"><span class="flag">🐅</span>Madhya Pradesh</div>
-        <div class="state-chip"><span class="flag">⛩</span>Tamil Nadu</div>
-        <div class="state-chip"><span class="flag">🌺</span>Karnataka</div>
-        <div class="state-chip"><span class="flag">🎨</span>Gujarat</div>
-        <div class="state-chip"><span class="flag">❄</span>Jammu & Kashmir</div>
-        <div class="state-chip"><span class="flag">🍵</span>Assam</div>
-        <div class="state-chip"><span class="flag">🔥</span>Andhra Pradesh</div>
-      </div>
-    </div>
-  </section>
 
 
 
-  <!-- ============================================================
-       FEATURE 6: READY-MADE ITINERARY CARDS
-  ============================================================ -->
-  <section id="itinerary-cards">
+<script>
 
-  <div class="container">
+setTimeout(() => {
 
-    <div class="section-header reveal">
+    window.location.href = "login.html";
 
-      <span class="section-label">✦ Pre-Built</span>
+}, 3000);
 
-      <h2 class="section-title">
-        Ready-Made <span>Itineraries</span>
-      </h2>
+</script>
 
-      <div class="gold-line"></div>
-
-      <p class="section-sub">
-        Download and go. Our expert-crafted travel plans save you hours of research.
-      </p>
-
-    </div>
-
-
-    <div class="itin-grid reveal">
-
-
-      <!-- JAIPUR -->
-
-      <div class="itin-card glass-card">
-
-        <div class="itin-banner">
-
-          <img
-            src="https://images.unsplash.com/photo-1477587458883-47145ed94245?q=80&w=1200&auto=format&fit=crop"
-            alt="Jaipur">
-
-        </div>
-
-        <div class="itin-body">
-
-          <div class="itin-duration">2 Days</div>
-
-          <div class="itin-title">
-            Jaipur Weekend Escape
-          </div>
-
-          <div class="itin-tags">
-
-            <span class="itin-tag">Heritage</span>
-
-            <span class="itin-tag">Forts</span>
-
-            <span class="itin-tag">Street Food</span>
-
-          </div>
-
-          <div class="itin-footer">
-
-            <div class="itin-price">
-              ₹4,500<small>per person</small>
-            </div>
-
-            <button
-              class="btn-gold"
-              style="padding:9px 18px;font-size:11px;"
-              onclick="loadPrebuiltItinerary('jaipur2')">
-
-              View →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- DELHI -->
-
-      <div class="itin-card glass-card">
-
-        <div class="itin-banner">
-
-          <img
-            src="https://images.unsplash.com/photo-1587474260584-136574528ed5?q=80&w=1200&auto=format&fit=crop"
-            alt="Delhi">
-
-        </div>
-
-        <div class="itin-body">
-
-          <div class="itin-duration">3 Days</div>
-
-          <div class="itin-title">
-            Delhi Heritage Trail
-          </div>
-
-          <div class="itin-tags">
-
-            <span class="itin-tag">History</span>
-
-            <span class="itin-tag">Monuments</span>
-
-            <span class="itin-tag">Mughal</span>
-
-          </div>
-
-          <div class="itin-footer">
-
-            <div class="itin-price">
-              ₹6,200<small>per person</small>
-            </div>
-
-            <button
-              class="btn-gold"
-              style="padding:9px 18px;font-size:11px;"
-              onclick="loadPrebuiltItinerary('delhi3')">
-
-              View →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- RAJASTHAN -->
-
-      <div class="itin-card glass-card">
-
-        <div class="itin-banner">
-
-          <img
-            src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?q=80&w=1200&auto=format&fit=crop"
-            alt="Rajasthan">
-
-        </div>
-
-        <div class="itin-body">
-
-          <div class="itin-duration">5 Days</div>
-
-          <div class="itin-title">
-            Golden Rajasthan Tour
-          </div>
-
-          <div class="itin-tags">
-
-            <span class="itin-tag">Jaipur</span>
-
-            <span class="itin-tag">Jodhpur</span>
-
-            <span class="itin-tag">Udaipur</span>
-
-          </div>
-
-          <div class="itin-footer">
-
-            <div class="itin-price">
-              ₹12,800<small>per person</small>
-            </div>
-
-            <button
-              class="btn-gold"
-              style="padding:9px 18px;font-size:11px;"
-              onclick="loadPrebuiltItinerary('raj5')">
-
-              View →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- GOA -->
-
-      <div class="itin-card glass-card">
-
-        <div class="itin-banner">
-
-          <img
-            src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1200&auto=format&fit=crop"
-            alt="Goa">
-
-        </div>
-
-        <div class="itin-body">
-
-          <div class="itin-duration">4 Days</div>
-
-          <div class="itin-title">
-            Goa Friends Getaway
-          </div>
-
-          <div class="itin-tags">
-
-            <span class="itin-tag">Beaches</span>
-
-            <span class="itin-tag">Nightlife</span>
-
-            <span class="itin-tag">Seafood</span>
-
-          </div>
-
-          <div class="itin-footer">
-
-            <div class="itin-price">
-              ₹9,500<small>per person</small>
-            </div>
-
-            <button
-              class="btn-gold"
-              style="padding:9px 18px;font-size:11px;"
-              onclick="loadPrebuiltItinerary('goa4')">
-
-              View →
-
-            </button>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-</section>
-  <!-- ============================================================
-       FEATURE 2: HOTEL / STAY RECOMMENDATIONS
-  ============================================================ -->
-  <section id="hotels">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">✦ Verified Stays</span>
-        <h2 class="section-title">Hotel <span>Recommendations</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">From cozy guesthouses to palace hotels — handpicked for every budget.</p>
-      </div>
-      <div class="hotels-filter reveal">
-        <button class="filter-btn active" onclick="filterHotels('all', this)">All</button>
-        <button class="filter-btn" onclick="filterHotels('budget', this)">🏠 Budget</button>
-        <button class="filter-btn" onclick="filterHotels('mid', this)">🏨 Mid-Range</button>
-        <button class="filter-btn" onclick="filterHotels('luxury', this)">👑 Luxury</button>
-      </div>
-      <div class="hotels-grid reveal" id="hotelsGrid">
-        <!-- Budget -->
-        <div class="hotel-card" data-tier="budget">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#1a2a3a,#2a4060);">🏠
-            <span class="hotel-tier"><span class="badge">Budget</span></span>
-          </div>
-          <div class="hotel-body">
-            <div class="hotel-name">The Backpacker's Inn</div>
-            <div class="hotel-location">📍 Old City, Jaipur</div>
-            <div class="hotel-rating">
-              <span class="stars">★★★★</span>
-              <span>4.1</span>
-              <span class="count">(328 reviews)</span>
-            </div>
-            <div class="hotel-amenities">
-              <span class="amenity">Free WiFi</span>
-              <span class="amenity">Dorm + Private</span>
-              <span class="amenity">Rooftop</span>
-            </div>
-            <div class="hotel-footer">
-              <div class="hotel-price">
-                <div class="per-night">per night</div>
-                <div class="amount">₹800</div>
-              </div>
-              <button class="btn-gold" style="padding:9px 18px;font-size:11px;">Book Now</button>
-            </div>
-          </div>
-        </div>
-        <div class="hotel-card" data-tier="budget">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#1a3a2a,#2a6040);">🛖
-            <span class="hotel-tier"><span class="badge">Budget</span></span>
-          </div>
-          <div class="hotel-body">
-            <div class="hotel-name">Green View Hostel</div>
-            <div class="hotel-location">📍 Calangute, Goa</div>
-            <div class="hotel-rating">
-              <span class="stars">★★★★</span>
-              <span>4.3</span>
-              <span class="count">(215 reviews)</span>
-            </div>
-            <div class="hotel-amenities">
-              <span class="amenity">Beach Nearby</span>
-              <span class="amenity">AC Rooms</span>
-              <span class="amenity">Breakfast</span>
-            </div>
-            <div class="hotel-footer">
-              <div class="hotel-price">
-                <div class="per-night">per night</div>
-                <div class="amount">₹1,200</div>
-              </div>
-              <button class="btn-gold" style="padding:9px 18px;font-size:11px;">Book Now</button>
-            </div>
-          </div>
-        </div>
-        <!-- Mid -->
-        <div class="hotel-card" data-tier="mid">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#2a1a4a,#4a2a7a);">🏨
-            <span class="hotel-tier"><span class="badge" style="background:rgba(26,159,168,0.2);color:#26c6d0;border-color:rgba(26,159,168,0.4);">Mid-Range</span></span>
-          </div>
-          <div class="hotel-body">
-            <div class="hotel-name">The Royal Haveli</div>
-            <div class="hotel-location">📍 Civil Lines, Jaipur</div>
-            <div class="hotel-rating">
-              <span class="stars">★★★★★</span>
-              <span>4.6</span>
-              <span class="count">(890 reviews)</span>
-            </div>
-            <div class="hotel-amenities">
-              <span class="amenity">Pool</span>
-              <span class="amenity">Spa</span>
-              <span class="amenity">Restaurant</span>
-              <span class="amenity">Parking</span>
-            </div>
-            <div class="hotel-footer">
-              <div class="hotel-price">
-                <div class="per-night">per night</div>
-                <div class="amount">₹4,500</div>
-              </div>
-              <button class="btn-gold" style="padding:9px 18px;font-size:11px;">Book Now</button>
-            </div>
-          </div>
-        </div>
-        <div class="hotel-card" data-tier="mid">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#1a3a5c,#2a6090);">🏩
-            <span class="hotel-tier"><span class="badge" style="background:rgba(26,159,168,0.2);color:#26c6d0;border-color:rgba(26,159,168,0.4);">Mid-Range</span></span>
-          </div>
-          <div class="hotel-body">
-            <div class="hotel-name">Seaside Boutique Resort</div>
-            <div class="hotel-location">📍 Baga Beach, Goa</div>
-            <div class="hotel-rating">
-              <span class="stars">★★★★★</span>
-              <span>4.5</span>
-              <span class="count">(1,240 reviews)</span>
-            </div>
-            <div class="hotel-amenities">
-              <span class="amenity">Beachfront</span>
-              <span class="amenity">Pool Bar</span>
-              <span class="amenity">Watersports</span>
-            </div>
-            <div class="hotel-footer">
-              <div class="hotel-price">
-                <div class="per-night">per night</div>
-                <div class="amount">₹6,800</div>
-              </div>
-              <button class="btn-gold" style="padding:9px 18px;font-size:11px;">Book Now</button>
-            </div>
-          </div>
-        </div>
-        <!-- Luxury -->
-        <div class="hotel-card" data-tier="luxury">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#3d1a00,#8b4a00,#d4a853);">👑
-            <span class="hotel-tier"><span class="badge" style="background:rgba(212,168,83,0.25);color:#f0c878;">Luxury</span></span>
-          </div>
-          <div class="hotel-body">
-            <div class="hotel-name">Jai Mahal Palace</div>
-            <div class="hotel-location">📍 Jacob Road, Jaipur</div>
-            <div class="hotel-rating">
-              <span class="stars">★★★★★</span>
-              <span>4.9</span>
-              <span class="count">(2,340 reviews)</span>
-            </div>
-            <div class="hotel-amenities">
-              <span class="amenity">Heritage Palace</span>
-              <span class="amenity">Butler</span>
-              <span class="amenity">Fine Dining</span>
-              <span class="amenity">Spa</span>
-            </div>
-            <div class="hotel-footer">
-              <div class="hotel-price">
-                <div class="per-night">per night</div>
-                <div class="amount">₹22,000</div>
-              </div>
-              <button class="btn-gold" style="padding:9px 18px;font-size:11px;">Book Now</button>
-            </div>
-          </div>
-        </div>
-        <div class="hotel-card" data-tier="luxury">
-          <div class="hotel-img" style="background:linear-gradient(135deg,#1a2d5c,#7b1a8a,#d4a853);">🏯
-            <span class="hotel-tier"><span class="badge" style="background:rgba(212,168,83,0.25);color:#f0c878;">Luxury</span></span>
-          </div>
-          <div class="hotel-body">
-            <div class="hotel-name">Leela Palace Udaipur</div>
-            <div class="hotel-location">📍 Lake Pichola, Udaipur</div>
-            <div class="hotel-rating">
-              <span class="stars">★★★★★</span>
-              <span>4.9</span>
-              <span class="count">(3,120 reviews)</span>
-            </div>
-            <div class="hotel-amenities">
-              <span class="amenity">Lake View</span>
-              <span class="amenity">Infinity Pool</span>
-              <span class="amenity">Helicopter Pad</span>
-            </div>
-            <div class="hotel-footer">
-              <div class="hotel-price">
-                <div class="per-night">per night</div>
-                <div class="amount">₹45,000</div>
-              </div>
-              <button class="btn-gold" style="padding:9px 18px;font-size:11px;">Book Now</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FEATURE 3: FOOD GUIDE
-  ============================================================ -->
-  <section id="food">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">✦ Eat Like a Local</span>
-        <h2 class="section-title">Food <span>Guide</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">From street-side dhabas to rooftop fine dining — taste the real India.</p>
-      </div>
-      <div class="food-tabs reveal">
-        <button class="food-tab active" onclick="filterFood('street', this)">🥘 Street Food</button>
-        <button class="food-tab" onclick="filterFood('cafe', this)">☕ Cafes</button>
-        <button class="food-tab" onclick="filterFood('family', this)">🍽 Restaurants</button>
-        <button class="food-tab" onclick="filterFood('rooftop', this)">🌆 Rooftop</button>
-      </div>
-      <div class="food-grid reveal" id="foodGrid">
-        <!-- Street Food -->
-        <div class="food-card" data-food="street">
-          <div class="food-img" style="background:linear-gradient(135deg,#c0392b,#e67e22);">🍜</div>
-          <div class="food-body">
-            <div class="food-category">Street Food</div>
-            <div class="food-name">Dal Baati Churma</div>
-            <div class="food-desc">Rajasthan's soul food – baked wheat balls in ghee with lentils and sweet churma.</div>
-            <div class="food-meta">
-              <span class="food-price">₹80–₹150</span>
-              <span class="food-rating">⭐ 4.9</span>
-            </div>
-          </div>
-        </div>
-        <div class="food-card" data-food="street">
-          <div class="food-img" style="background:linear-gradient(135deg,#27ae60,#f39c12);">🌮</div>
-          <div class="food-body">
-            <div class="food-category">Street Food</div>
-            <div class="food-name">Pyaaz Kachori</div>
-            <div class="food-desc">Crispy deep-fried pastry stuffed with spiced onion filling — Jaipur's iconic snack.</div>
-            <div class="food-meta">
-              <span class="food-price">₹20–₹30</span>
-              <span class="food-rating">⭐ 4.8</span>
-            </div>
-          </div>
-        </div>
-        <div class="food-card" data-food="street">
-          <div class="food-img" style="background:linear-gradient(135deg,#e74c3c,#8e44ad);">🍢</div>
-          <div class="food-body">
-            <div class="food-category">Street Food · Goa</div>
-            <div class="food-name">Goan Prawn Balchao</div>
-            <div class="food-desc">Fiery tangy prawn pickle — an explosion of coastal flavours, best with fresh bread.</div>
-            <div class="food-meta">
-              <span class="food-price">₹120–₹200</span>
-              <span class="food-rating">⭐ 4.7</span>
-            </div>
-          </div>
-        </div>
-        <!-- Cafe -->
-        <div class="food-card" data-food="cafe" style="display:none">
-          <div class="food-img" style="background:linear-gradient(135deg,#2c3e50,#4a6fa5);">☕</div>
-          <div class="food-body">
-            <div class="food-category">Cafe · Jaipur</div>
-            <div class="food-name">Tattoo Cafe &amp; Kitchen</div>
-            <div class="food-desc">Quirky cafe with exposed brickwork, artisan coffee and global fusion bites.</div>
-            <div class="food-meta">
-              <span class="food-price">₹200–₹500</span>
-              <span class="food-rating">⭐ 4.6</span>
-            </div>
-          </div>
-        </div>
-        <div class="food-card" data-food="cafe" style="display:none">
-          <div class="food-img" style="background:linear-gradient(135deg,#1a4a2a,#2e8b57);">🌿</div>
-          <div class="food-body">
-            <div class="food-category">Cafe · Manali</div>
-            <div class="food-name">The Lazy Dog Lounge</div>
-            <div class="food-desc">Riverside hippie cafe with wood-fire pizza, mountain views, and live music.</div>
-            <div class="food-meta">
-              <span class="food-price">₹300–₹700</span>
-              <span class="food-rating">⭐ 4.8</span>
-            </div>
-          </div>
-        </div>
-        <div class="food-card" data-food="cafe" style="display:none">
-          <div class="food-img" style="background:linear-gradient(135deg,#5c1a1a,#a0522d);">🧁</div>
-          <div class="food-body">
-            <div class="food-category">Cafe · Delhi</div>
-            <div class="food-name">Hauz Khas Village Cafes</div>
-            <div class="food-desc">Lake-view cafes serving continental breakfast, smoothie bowls and cold brews.</div>
-            <div class="food-meta">
-              <span class="food-price">₹250–₹600</span>
-              <span class="food-rating">⭐ 4.5</span>
-            </div>
-          </div>
-        </div>
-        <!-- Restaurant -->
-        <div class="food-card" data-food="family" style="display:none">
-          <div class="food-img" style="background:linear-gradient(135deg,#1a1a5c,#4a2090);">🍽</div>
-          <div class="food-body">
-            <div class="food-category">Restaurant · Jaipur</div>
-            <div class="food-name">Suvarna Mahal</div>
-            <div class="food-desc">Royal Rajasthani thali with heritage setting inside Rambagh Palace.</div>
-            <div class="food-meta">
-              <span class="food-price">₹1,800–₹3,500</span>
-              <span class="food-rating">⭐ 4.9</span>
-            </div>
-          </div>
-        </div>
-        <div class="food-card" data-food="family" style="display:none">
-          <div class="food-img" style="background:linear-gradient(135deg,#3d1a00,#7a3500);">🥘</div>
-          <div class="food-body">
-            <div class="food-category">Restaurant · Delhi</div>
-            <div class="food-name">Bukhara – ITC Maurya</div>
-            <div class="food-desc">Legendary North-West Frontier cuisine loved by world leaders. Dal Bukhara is iconic.</div>
-            <div class="food-meta">
-              <span class="food-price">₹2,500–₹6,000</span>
-              <span class="food-rating">⭐ 4.9</span>
-            </div>
-          </div>
-        </div>
-        <!-- Rooftop -->
-        <div class="food-card" data-food="rooftop" style="display:none">
-          <div class="food-img" style="background:linear-gradient(135deg,#0d1b3e,#1a4080,#d4a853);">🌆</div>
-          <div class="food-body">
-            <div class="food-category">Rooftop · Jaipur</div>
-            <div class="food-name">Dera Rawatsar Rooftop</div>
-            <div class="food-desc">Stunning fort views, candlelit tables, live folk music, authentic Rajasthani cuisine.</div>
-            <div class="food-meta">
-              <span class="food-price">₹800–₹2,000</span>
-              <span class="food-rating">⭐ 4.7</span>
-            </div>
-          </div>
-        </div>
-        <div class="food-card" data-food="rooftop" style="display:none">
-          <div class="food-img" style="background:linear-gradient(135deg,#0f3443,#34e89e50);">🌅</div>
-          <div class="food-body">
-            <div class="food-category">Rooftop · Udaipur</div>
-            <div class="food-name">Ambrai Restaurant</div>
-            <div class="food-desc">Lake Pichola views with City Palace backdrop. Perfect for romantic candlelight dinners.</div>
-            <div class="food-meta">
-              <span class="food-price">₹600–₹1,800</span>
-              <span class="food-rating">⭐ 4.8</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FEATURE 4: TRANSPORT GUIDE
-  ============================================================ -->
-  <section id="transport">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">✦ Getting Around</span>
-        <h2 class="section-title">Transport <span>Guide</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">Everything you need to know about reaching and navigating your destination.</p>
-      </div>
-      <div class="transport-city-tabs reveal">
-        <button class="filter-btn active" onclick="switchTransport('jaipur', this)">Jaipur</button>
-        <button class="filter-btn" onclick="switchTransport('delhi', this)">Delhi</button>
-        <button class="filter-btn" onclick="switchTransport('goa', this)">Goa</button>
-      </div>
-      <div class="transport-content reveal" id="transportContent">
-        <div class="transport-card">
-          <div class="transport-icon">✈️</div>
-          <div class="transport-type">By Air</div>
-          <div class="transport-title">Jaipur International Airport</div>
-          <div class="transport-details">Located 13km from city centre. Flights from Delhi (1hr), Mumbai (2hrs), Bengaluru (2.5hrs). Terminal 2 for domestic flights.</div>
-          <div class="transport-cost">
-            <span class="cost-label">Airport to City</span>
-            <span class="cost-value">₹400–₹700 (cab)</span>
-          </div>
-        </div>
-        <div class="transport-card">
-          <div class="transport-icon">🚂</div>
-          <div class="transport-type">By Rail</div>
-          <div class="transport-title">Jaipur Railway Station</div>
-          <div class="transport-details">Well connected to Delhi (5hrs by Shatabdi), Jodhpur (5hrs), Mumbai (18hrs). Pre-paid autos available outside station.</div>
-          <div class="transport-cost">
-            <span class="cost-label">Station to Hotel</span>
-            <span class="cost-value">₹80–₹200 (auto)</span>
-          </div>
-        </div>
-        <div class="transport-card">
-          <div class="transport-icon">🚌</div>
-          <div class="transport-type">Local Transport</div>
-          <div class="transport-title">Bus / Metro / Auto</div>
-          <div class="transport-details">City buses cover major routes (₹10–₹30). Autos easily available. App-based cabs (Ola/Uber) reliable. No metro yet — bus is best for budget travel.</div>
-          <div class="transport-cost">
-            <span class="cost-label">Avg Local Trip</span>
-            <span class="cost-value">₹50–₹150</span>
-          </div>
-        </div>
-        <div class="transport-card">
-          <div class="transport-icon">🛺</div>
-          <div class="transport-type">Rickshaw &amp; Taxi</div>
-          <div class="transport-title">Cycle Rickshaw &amp; E-Rickshaw</div>
-          <div class="transport-details">Best for Old City navigation. Cycle rickshaws are iconic — negotiate before boarding. E-rickshaws available near major tourist spots.</div>
-          <div class="transport-cost">
-            <span class="cost-label">Short Ride</span>
-            <span class="cost-value">₹20–₹60</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FEATURE 5: HIDDEN GEMS
-  ============================================================ -->
-  <section id="hidden-gems">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">✦ Off the Beaten Path</span>
-        <h2 class="section-title">Hidden <span>Gems</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">Lesser-known treasures that most tourists miss — secret spots only locals know.</p>
-      </div>
-      <div class="gems-grid reveal">
-        <div class="gem-card">
-          <div class="gem-visual" style="background:linear-gradient(135deg,#1a0a3a,#4a1a8a);">🔭
-            <span class="gem-secret-badge">Secret</span>
-          </div>
-          <div class="gem-body">
-            <div class="gem-type">📍 Secret Viewpoint</div>
-            <div class="gem-name">Nahargarh Fort Sunset</div>
-            <div class="gem-desc">Most tourists crowd Amber Fort, but the Nahargarh rampart walk offers a 360° view of Jaipur's pink skyline at golden hour — nearly empty!</div>
-            <div class="gem-footer">
-              <span class="gem-city">📌 Jaipur</span>
-              <span class="badge">Free Entry</span>
-            </div>
-          </div>
-        </div>
-        <div class="gem-card">
-          <div class="gem-visual" style="background:linear-gradient(135deg,#0a2a1a,#1a6a4a);">🌿
-            <span class="gem-secret-badge">Quiet</span>
-          </div>
-          <div class="gem-body">
-            <div class="gem-type">☕ Quiet Cafe</div>
-            <div class="gem-name">Peacock Rooftop, Udaipur</div>
-            <div class="gem-desc">Tucked in a haveli lane with a postcard-perfect view of Lake Pichola and City Palace. No crowds, live sitar music, simple Rajasthani food.</div>
-            <div class="gem-footer">
-              <span class="gem-city">📌 Udaipur</span>
-              <span class="badge">Local Fav</span>
-            </div>
-          </div>
-        </div>
-        <div class="gem-card">
-          <div class="gem-visual" style="background:linear-gradient(135deg,#3a1a0a,#8a4a1a);">🛍
-            <span class="gem-secret-badge">Hidden</span>
-          </div>
-          <div class="gem-body">
-            <div class="gem-type">🛒 Local Market</div>
-            <div class="gem-name">Tripolia Bazaar Lane</div>
-            <div class="gem-desc">Skip Johari Bazaar — Tripolia's inner lanes hide master craftsmen selling silver jewellery, lac bangles and hand-block fabric at half the price.</div>
-            <div class="gem-footer">
-              <span class="gem-city">📌 Jaipur</span>
-              <span class="badge">Best Price</span>
-            </div>
-          </div>
-        </div>
-        <div class="gem-card">
-          <div class="gem-visual" style="background:linear-gradient(135deg,#1a3a5c,#0a6080);">📸
-            <span class="gem-secret-badge">Photo Spot</span>
-          </div>
-          <div class="gem-body">
-            <div class="gem-type">📷 Photography Spot</div>
-            <div class="gem-name">Mehrangarh Blue Steps</div>
-            <div class="gem-desc">A hidden staircase inside Jodhpur's old city painted in 50 shades of blue — an Instagrammer's paradise that even most locals don't know!</div>
-            <div class="gem-footer">
-              <span class="gem-city">📌 Jodhpur</span>
-              <span class="badge">Insta-worthy</span>
-            </div>
-          </div>
-        </div>
-        <div class="gem-card">
-          <div class="gem-visual" style="background:linear-gradient(135deg,#0a3a2a,#1a8a5a);">🌅
-            <span class="gem-secret-badge">Secret</span>
-          </div>
-          <div class="gem-body">
-            <div class="gem-type">🌄 Secret Beach</div>
-            <div class="gem-name">Butterfly Beach, Goa</div>
-            <div class="gem-desc">Accessible only by boat from Agonda, this crescent cove is dolphin territory — arrive at 6am and you'll share it with just the dolphins!</div>
-            <div class="gem-footer">
-              <span class="gem-city">📌 South Goa</span>
-              <span class="badge">Secluded</span>
-            </div>
-          </div>
-        </div>
-        <div class="gem-card">
-          <div class="gem-visual" style="background:linear-gradient(135deg,#2a0a3a,#7a1a5a);">✨
-            <span class="gem-secret-badge">Local</span>
-          </div>
-          <div class="gem-body">
-            <div class="gem-type">🎭 Local Experience</div>
-            <div class="gem-name">Galta Ji Monkey Temple</div>
-            <div class="gem-desc">A 5km trek from Jaipur through Aravalli hills reveals a 17th-century monkey temple — sacred bathing tanks, 1000 resident monkeys and zero tourist buses!</div>
-            <div class="gem-footer">
-              <span class="gem-city">📌 Jaipur Outskirts</span>
-              <span class="badge">Rare Gem</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FEATURE 7: SEASONAL TRAVEL
-  ============================================================ -->
-  <section id="seasonal">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">✦ Plan by Season</span>
-        <h2 class="section-title">Seasonal <span>Travel</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">The right destination at the right time makes all the difference.</p>
-      </div>
-      <div class="seasons-grid reveal">
-        <div class="season-card season-summer">
-          <div class="season-icon">☀️</div>
-          <div class="season-name">Summer Escapes</div>
-          <div class="season-months">March – June</div>
-          <div class="season-places">
-            <span class="season-place">Shimla</span>
-            <span class="season-place">Manali</span>
-            <span class="season-place">Leh-Ladakh</span>
-            <span class="season-place">Ooty</span>
-            <span class="season-place">Munnar</span>
-          </div>
-        </div>
-        <div class="season-card season-monsoon">
-          <div class="season-icon">🌧</div>
-          <div class="season-name">Monsoon Magic</div>
-          <div class="season-months">July – September</div>
-          <div class="season-places">
-            <span class="season-place">Coorg</span>
-            <span class="season-place">Wayanad</span>
-            <span class="season-place">Cherrapunji</span>
-            <span class="season-place">Lonavala</span>
-          </div>
-        </div>
-        <div class="season-card season-winter">
-          <div class="season-icon">❄️</div>
-          <div class="season-name">Winter Wonders</div>
-          <div class="season-months">October – February</div>
-          <div class="season-places">
-            <span class="season-place">Rajasthan</span>
-            <span class="season-place">Goa</span>
-            <span class="season-place">Kerala</span>
-            <span class="season-place">Rann of Kutch</span>
-          </div>
-        </div>
-        <div class="season-card season-festival">
-          <div class="season-icon">🎆</div>
-          <div class="season-name">Festival Travel</div>
-          <div class="season-months">Year-round</div>
-          <div class="season-places">
-            <span class="season-place">Pushkar Fair</span>
-            <span class="season-place">Diwali Varanasi</span>
-            <span class="season-place">Holi Mathura</span>
-            <span class="season-place">Hornbill Fest</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FEATURE 9: REELS / SHORT VIDEOS
-  ============================================================ -->
-  <section id="reels">
-    <div class="container">
-      <div class="section-header reveal" style="margin-bottom:36px;">
-        <span class="section-label">✦ City Shorts</span>
-        <h2 class="section-title">Travel <span>Reels</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">30-second city guides, food tours, and must-visit spots — swipe and explore.</p>
-      </div>
-    </div>
-    <div class="container" style="max-width:100%;padding-right:0;">
-      <div class="reels-scroll reveal">
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#c0392b 0%,#8e44ad 100%);">🏰
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:32</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Jaipur in 30 Seconds</div>
-              <div class="reel-city">Jaipur · Rajasthan</div>
-              <div class="reel-views">12.4K views</div>
-            </div>
-          </div>
-        </div>
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#0099f1 0%,#27ae60 100%);">🌊
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:28</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Best Beaches in Goa</div>
-              <div class="reel-city">Goa · West Coast</div>
-              <div class="reel-views">28.1K views</div>
-            </div>
-          </div>
-        </div>
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#f39c12 0%,#d35400 100%);">🍜
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:45</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Street Food Guide</div>
-              <div class="reel-city">Delhi · Chandni Chowk</div>
-              <div class="reel-views">44.8K views</div>
-            </div>
-          </div>
-        </div>
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#1a6b8a 0%,#16a085 100%);">🏛
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:30</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Udaipur Lake Palace</div>
-              <div class="reel-city">Udaipur · Rajasthan</div>
-              <div class="reel-views">19.2K views</div>
-            </div>
-          </div>
-        </div>
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#2980b9 0%,#6dd5fa 50%,#2980b9 100%);">⛰
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:38</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Manali Winter Trip</div>
-              <div class="reel-city">Manali · Himachal</div>
-              <div class="reel-views">31.5K views</div>
-            </div>
-          </div>
-        </div>
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#7b2d00 0%,#f39c12 100%);">🪔
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:35</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Varanasi Ganga Aarti</div>
-              <div class="reel-city">Varanasi · UP</div>
-              <div class="reel-views">52.3K views</div>
-            </div>
-          </div>
-        </div>
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#0a3320 0%,#27ae60 100%);">🌿
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:42</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Kerala Backwaters</div>
-              <div class="reel-city">Alleppey · Kerala</div>
-              <div class="reel-views">23.7K views</div>
-            </div>
-          </div>
-        </div>
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#4a0a6e 0%,#8b1a9a 100%);">❄
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:29</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Leh-Ladakh Road Trip</div>
-              <div class="reel-city">Ladakh · J&amp;K</div>
-              <div class="reel-views">67.9K views</div>
-            </div>
-          </div>
-        </div>
-        <a href="https://www.instagram.com/reel/DV22tISEjVm/" target="_blank">
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#e74c3c 0%,#f39c12 100%);">🏰
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:35</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Hawa Mahal Magic</div>
-              <div class="reel-city">Jaipur · Rajasthan</div>
-              <div class="reel-views">89.2K views</div>
-            </div>
-          </div>
-        </div>
-        </a>
-        <a href="https://www.instagram.com/reel/CmbzxNyhxXF/" target="_blank">
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#27ae60 0%,#2ecc71 100%);">🏛
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:42</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">City Palace Secrets</div>
-              <div class="reel-city">Jaipur · Rajasthan</div>
-              <div class="reel-views">76.5K views</div>
-            </div>
-          </div>
-        </div>
-        </a>
-        <a href="https://www.instagram.com/reel/DCn-znliUaq/" target="_blank">
-        <div class="reel-card">
-          <div class="reel-visual" style="background:linear-gradient(180deg,#8e44ad 0%,#9b59b6 100%);">🌅
-            <div class="reel-overlay"></div>
-            <div class="reel-duration">0:38</div>
-            <div class="reel-play">▶</div>
-            <div class="reel-info">
-              <div class="reel-title">Amber Fort Sunrise</div>
-              <div class="reel-city">Jaipur · Rajasthan</div>
-              <div class="reel-views">95.1K views</div>
-            </div>
-          </div>
-        </div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FEATURE 8: USER REVIEWS
-  ============================================================ -->
-  <section id="reviews">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">✦ Community</span>
-        <h2 class="section-title">Traveller <span>Reviews</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">Real stories from real travellers who explored India with Smart Trip.</p>
-      </div>
-      <div class="reviews-grid reveal">
-        <div class="review-card">
-          <div class="review-quote">"</div>
-          <div class="review-header">
-            <div class="review-avatar">A</div>
-            <div>
-              <div class="review-name">Ananya Sharma</div>
-              <div class="review-place">📌 Jaipur Trip · Solo</div>
-            </div>
-          </div>
-          <div class="review-stars"><span class="stars">★★★★★</span></div>
-          <div class="review-text">Smart Trip's itinerary was so spot-on that I felt like I had a personal local guide. The hidden gem at Nahargarh at sunset was absolutely magical — no crowds and a view that took my breath away!</div>
-          <div class="review-date">March 2025</div>
-        </div>
-        <div class="review-card">
-          <div class="review-quote">"</div>
-          <div class="review-header">
-            <div class="review-avatar" style="background:linear-gradient(135deg,#1a9fa8,#16a085);">R</div>
-            <div>
-              <div class="review-name">Rohit &amp; Priya</div>
-              <div class="review-place">📌 Udaipur · Couple</div>
-            </div>
-          </div>
-          <div class="review-stars"><span class="stars">★★★★★</span></div>
-          <div class="review-text">Our honeymoon trip to Udaipur was pure magic. The hotel recommendation — Leela Palace — was absolutely worth every rupee. We cried a little at checkout!</div>
-          <div class="review-date">January 2025</div>
-        </div>
-        <div class="review-card">
-          <div class="review-quote">"</div>
-          <div class="review-header">
-            <div class="review-avatar" style="background:linear-gradient(135deg,#e74c3c,#c0392b);">M</div>
-            <div>
-              <div class="review-name">Mohit Verma</div>
-              <div class="review-place">📌 Goa · Friends Trip</div>
-            </div>
-          </div>
-          <div class="review-stars"><span class="stars">★★★★</span><span style="color:var(--text-muted)">★</span></div>
-          <div class="review-text">We used the Goa Friends Getaway itinerary and it was perfect for our group of 8. Budget was spot on and the restaurant tips saved us from tourist traps. Will use again!</div>
-          <div class="review-date">February 2025</div>
-        </div>
-        <div class="review-card">
-          <div class="review-quote">"</div>
-          <div class="review-header">
-            <div class="review-avatar" style="background:linear-gradient(135deg,#27ae60,#1abc9c);">S</div>
-            <div>
-              <div class="review-name">Sanya Kapoor</div>
-              <div class="review-place">📌 Shimla · Family</div>
-            </div>
-          </div>
-          <div class="review-stars"><span class="stars">★★★★★</span></div>
-          <div class="review-text">Planned our family Shimla trip entirely through Smart Trip. The transport guide was incredibly accurate and saved us so much confusion at the railway station. 10/10 would recommend!</div>
-          <div class="review-date">December 2024</div>
-        </div>
-        <div class="review-card">
-          <div class="review-quote">"</div>
-          <div class="review-header">
-            <div class="review-avatar" style="background:linear-gradient(135deg,#9b59b6,#6c3483);">V</div>
-            <div>
-              <div class="review-name">Vijay Nair</div>
-              <div class="review-place">📌 Kerala Backwaters</div>
-            </div>
-          </div>
-          <div class="review-stars"><span class="stars">★★★★★</span></div>
-          <div class="review-text">Kerala backwater houseboat was booked through Smart Trip deals section — got 25% off! The experience was divine. The food guide led us to a tiny toddy shop with the best fish curry ever.</div>
-          <div class="review-date">November 2024</div>
-        </div>
-        <div class="review-card">
-          <div class="review-quote">"</div>
-          <div class="review-header">
-            <div class="review-avatar" style="background:linear-gradient(135deg,#f39c12,#d35400);">K</div>
-            <div>
-              <div class="review-name">Kriti Patel</div>
-              <div class="review-place">📌 Varanasi · Solo</div>
-            </div>
-          </div>
-          <div class="review-stars"><span class="stars">★★★★★</span></div>
-          <div class="review-text">Visiting Varanasi solo was intimidating but Smart Trip's day-by-day guide made it seamless. The Ganga Aarti at Dashashwamedh Ghat at 6am (their tip!) with no crowd — life-changing.</div>
-          <div class="review-date">October 2024</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FEATURE 10: DEALS & OFFERS
-  ============================================================ -->
-  <section id="deals">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">✦ Limited Time</span>
-        <h2 class="section-title">Deals &amp; <span>Offers</span></h2>
-        <div class="gold-line"></div>
-        <p class="section-sub">Exclusive discounts on hotels, packages, and experiences — grab them before they expire!</p>
-      </div>
-      <div class="deals-grid reveal">
-        <div class="deal-card">
-          <div class="deal-banner" style="background:linear-gradient(135deg,#c0392b,#8e44ad);">🏰
-            <span class="deal-discount">35% OFF</span>
-            <div class="deal-timer">⏱ 2d 14h left</div>
-          </div>
-          <div class="deal-body">
-            <div class="deal-type">Hotel Deal</div>
-            <div class="deal-name">Jaipur Heritage Stay</div>
-            <div class="deal-desc">3 nights at The Royal Haveli with complimentary breakfast and heritage walk tour included.</div>
-            <div class="deal-pricing">
-              <span class="deal-original">₹13,500</span>
-              <span class="deal-final">₹8,775</span>
-            </div>
-            <div class="deal-includes">
-              <span class="deal-include">Breakfast</span>
-              <span class="deal-include">Heritage Walk</span>
-              <span class="deal-include">Free WiFi</span>
-              <span class="deal-include">Airport Drop</span>
-            </div>
-            <button class="btn-gold" style="width:100%;">Grab Deal ✦</button>
-          </div>
-        </div>
-        <div class="deal-card">
-          <div class="deal-banner" style="background:linear-gradient(135deg,#0099f7,#27ae60);">🌊
-            <span class="deal-discount">28% OFF</span>
-            <div class="deal-timer">⏱ 5d 8h left</div>
-          </div>
-          <div class="deal-body">
-            <div class="deal-type">Weekend Package</div>
-            <div class="deal-name">Goa Beach Weekend</div>
-            <div class="deal-desc">2N/3D at Baga Beach resort with water sports + sunset cruise. Perfect for couples and friends.</div>
-            <div class="deal-pricing">
-              <span class="deal-original">₹14,000</span>
-              <span class="deal-final">₹10,080</span>
-            </div>
-            <div class="deal-includes">
-              <span class="deal-include">Hotel Stay</span>
-              <span class="deal-include">Water Sports</span>
-              <span class="deal-include">Sunset Cruise</span>
-            </div>
-            <button class="btn-gold" style="width:100%;">Grab Deal ✦</button>
-          </div>
-        </div>
-        <div class="deal-card">
-          <div class="deal-banner" style="background:linear-gradient(135deg,#f7971e,#d4a853);">🏜
-            <span class="deal-discount">40% OFF</span>
-            <div class="deal-timer">⏱ 1d 6h left</div>
-          </div>
-          <div class="deal-body">
-            <div class="deal-type">Budget Trip</div>
-            <div class="deal-name">Golden Triangle Budget</div>
-            <div class="deal-desc">5N/6D Delhi–Agra–Jaipur with budget hotels, guided tours, all transfers. Best value of the year!</div>
-            <div class="deal-pricing">
-              <span class="deal-original">₹22,000</span>
-              <span class="deal-final">₹13,200</span>
-            </div>
-            <div class="deal-includes">
-              <span class="deal-include">3 City Hotels</span>
-              <span class="deal-include">All Transfers</span>
-              <span class="deal-include">Guided Tours</span>
-            </div>
-            <button class="btn-gold" style="width:100%;">Grab Deal ✦</button>
-          </div>
-        </div>
-        <div class="deal-card">
-          <div class="deal-banner" style="background:linear-gradient(135deg,#4a0a6e,#e74c3c);">🎆
-            <span class="deal-discount">20% OFF</span>
-            <div class="deal-timer">⏱ Festival Offer</div>
-          </div>
-          <div class="deal-body">
-            <div class="deal-type">Festival Special</div>
-            <div class="deal-name">Diwali in Jaipur</div>
-            <div class="deal-desc">Experience Diwali in the Pink City — fort light shows, fireworks, royal dinner and cultural performances.</div>
-            <div class="deal-pricing">
-              <span class="deal-original">₹18,500</span>
-              <span class="deal-final">₹14,800</span>
-            </div>
-            <div class="deal-includes">
-              <span class="deal-include">Fort Light Show</span>
-              <span class="deal-include">Royal Dinner</span>
-              <span class="deal-include">Cultural Show</span>
-            </div>
-            <button class="btn-gold" style="width:100%;">Grab Deal ✦</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       NEWSLETTER
-  ============================================================ -->
-  <section id="newsletter">
-    <div class="container">
-      <div class="newsletter-card reveal">
-        <div class="newsletter-icon">✈️</div>
-        <span class="section-label">✦ Stay Updated</span>
-        <h2 class="section-title" style="font-size:clamp(24px,3.5vw,40px);margin-top:12px;">Get <span>Travel Deals</span> First</h2>
-        <p style="color:var(--text-soft);max-width:480px;margin:0 auto;">Weekly curated travel deals, hidden gems, seasonal tips and exclusive offers — delivered to your inbox.</p>
-        <div class="newsletter-form">
-          <input type="email" class="newsletter-input" placeholder="your@email.com" id="nl-email">
-          <button class="btn-gold" onclick="subscribeNewsletter()">Subscribe ✦</button>
-        </div>
-        <p style="font-size:12px;color:var(--text-muted);margin-top:16px;">📩 No spam. Unsubscribe anytime. Loved by 12,000+ travellers.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================================
-       FOOTER
-  ============================================================ -->
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="nav-logo">SMART<span>TRIP</span></div>
-          <p class="footer-desc">India's most trusted travel planning platform. Discover, plan, and experience the incredible diversity of India with curated guides, verified hotels, and expert itineraries.</p>
-          <div class="footer-socials">
-            <a href="#" class="social-btn" title="Instagram">📸</a>
-            <a href="#" class="social-btn" title="Twitter">🐦</a>
-            <a href="#" class="social-btn" title="YouTube">▶</a>
-            <a href="#" class="social-btn" title="Facebook">👥</a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Destinations</h4>
-          <ul class="footer-links">
-            <li><a href="#">Rajasthan</a></li>
-            <li><a href="#">Goa</a></li>
-            <li><a href="#">Kerala</a></li>
-            <li><a href="#">Himachal Pradesh</a></li>
-            <li><a href="#">Uttarakhand</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Plan</h4>
-          <ul class="footer-links">
-            <li><a href="#planner">Trip Planner</a></li>
-            <li><a href="#hotels">Hotels</a></li>
-            <li><a href="#food">Food Guide</a></li>
-            <li><a href="#transport">Transport</a></li>
-            <li><a href="#deals">Deals</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Company</h4>
-          <ul class="footer-links">
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Blog</a></li>
-            <li><a href="#">Careers</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2025 SmartTrip. All rights reserved. Made with ❤️ for Indian travellers.</p>
-        <div class="footer-badges">
-          <span class="footer-badge">🔒 Secure</span>
-          <span class="footer-badge">✓ Verified</span>
-          <span class="footer-badge">⭐ 4.9 Rated</span>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <!-- MORE SECTIONS -->
- <script src="assets/js/auth.js"></script>
- <script src="assets/js/main.js"></script>
- <script src="assets/js/script.js"></script>
 </body>
 </html>

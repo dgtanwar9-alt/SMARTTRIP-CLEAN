@@ -22,3 +22,55 @@
       .newsletter-card { padding: 40px 24px; }
       .planner-actions { flex-direction: column; align-items: stretch; }
     }
+
+/* MOBILE FULL FIX */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+    margin:0;
+    padding:0;
+}
+
+
+/* UNIVERSAL FIX */
+
+*{
+    box-sizing:border-box;
+}
+
+
+/* IMAGE FIX */
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+
+/* SECTION FIX */
+
+section{
+    width:100%;
+    overflow:hidden;
+}
+
+
+/* CONTAINER FIX */
+
+.container{
+    width:min(92%,1400px);
+    margin:auto;
+}
+
+
+/* FLEX FIX */
+
+.row,
+.hero-buttons,
+.nav-inner{
+    flex-wrap:wrap;
+}

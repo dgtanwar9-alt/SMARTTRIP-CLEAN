@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Smart Trip</title>
+
+  
+<link rel="stylesheet" href="assets/css/auth.css">
+</head>
+
+<body>
+
+  <!-- AUTH SCREEN -->
+
+  <section class="auth-screen" id="authScreen">
+
+    <div class="auth-topbar">
+
+      <p class="auth-logo">
+        <a href="home.html">Smart <span>Trip</span></a>
+      </p>
+
+      <button
+        class="auth-top-login"
+        type="button"
+        onclick="window.location.href='login.html'">
+
+        Login
+
+      </button>
+
+    </div>
+
+    <div class="auth-layout">
+
+      <div class="auth-panel">
+
+        <div class="auth-heading">
+          <h1>Create an <span>Account</span></h1>
+          <p>Sign up and start your next adventure</p>
+        </div>
+
+        <div class="auth-form" id="authForm">
+
+          <div class="auth-field">
+            <span class="auth-icon"></span>
+
+            <label for="fullNameInput">Full Name</label>
+
+            <input
+              class="auth-input"
+              id="fullNameInput"
+              type="text"
+              autocomplete="name"
+              placeholder="Full Name">
+          </div>
+
+          <div class="auth-field">
+            <span class="auth-icon"></span>
+
+            <label for="loginIdentifier">Email</label>
+
+            <input
+              class="auth-input"
+              id="loginIdentifier"
+              type="email"
+              inputmode="email"
+              autocomplete="email"
+              placeholder="Email">
+          </div>
+
+          <div class="auth-field">
+            <span class="auth-icon"></span>
+
+            <label for="passwordInput">Password</label>
+
+            <input
+              class="auth-input"
+              id="passwordInput"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Password">
+          </div>
+
+          <div class="auth-field">
+            <span class="auth-icon"></span>
+
+            <label for="confirmPasswordInput">Confirm Password</label>
+
+            <input
+              class="auth-input"
+              id="confirmPasswordInput"
+              type="password"
+              autocomplete="new-password"
+              placeholder="Confirm Password">
+          </div>
+
+          <button
+            class="auth-button"
+            id="requestOtpButton"
+            type="button">
+
+            Sign Up
+
+          </button>
+
+          <div class="auth-divider">OR</div>
+
+          <div class="auth-actions">
+
+            <button
+              class="link-button"
+              id="forgotGmailButton"
+              type="button">
+
+              G Sign up with Google
+
+            </button>
+
+            <button
+              class="link-button"
+              id="facebookSignupButton"
+              type="button">
+
+              f Sign up with Facebook
+
+            </button>
+
+          </div>
+
+          <p class="auth-switch">
+
+            Already have an account?
+
+            <button
+              id="quickLoginButton"
+              type="button">
+
+              Login
+
+            </button>
+
+          </p>
+
+          <p class="auth-message" id="authMessage">
+            Create your Smart Trip account.
+          </p>
+
+          <b class="auth-field" id="otpArea" hidden></b>
+
+            <label for="otpInput">Enter OTP</label>
+
+            <div class="otp-row">
+
+              <input
+                class="auth-input"
+                id="otpInput"
+                type="text"
+                inputmode="numeric"
+                maxlength="6"
+                autocomplete="one-time-code"
+                placeholder="6 digit OTP">
+
+              <button
+                class="auth-button"
+                id="verifyOtpButton"
+                type="button">
+
+                Verify
+
+              </button>
+
+            </div>
+
+          </div>
+
+          <button
+            class="link-button"
+            id="changeLoginButton"
+            type="button"
+            hidden>
+
+            Change login ID
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- MAIN APP -->
+
+  <div class="app-shell" id="appShell" hidden>
+
+    <header class="site-header">
+
+      <nav class="navbar" aria-label="Main navigation">
+
+        <h1 class="logo">
+          <a href="home.html">Smart <span>Trip</span></a>
+        </h1>
+
+        <div class="nav-links">
+
+          <a class="nav-link active" href="#statesHero">
+            Home
+          </a>
+
+          <a class="nav-link" href="#statesSelection">
+            Destinations
+          </a>
+
+          <a class="nav-link" href="#statesSelection">
+            Tours
+          </a>
+
+          <a class="nav-link" href="#contact">
+            Contact
+          </a>
+
+        </div>
+
+        <div class="nav-actions">
+
+          <button
+            class="nav-button"
+            id="backButton"
+            type="button"
+            hidden>
+
+            ← Back to States
+
+          </button>
+
+          <button
+            class="nav-button"
+            id="planButton"
+            type="button"
+            hidden>
+
+            Plan Your Trip
+
+          </button>
+
+          <button
+            class="nav-button logout-button"
+            id="logoutButton"
+            type="button">
+
+            Logout
+
+          </button>
+
+        </div>
+
+      </nav>
+
+    </header>
+
+  </div>
+
+  <!-- JAVASCRIPT -->
+
+  <script>
+
+    const requestOtpButton =
+      document.getElementById("requestOtpButton");
+
+    requestOtpButton.addEventListener("click", function () {
+
+      document.getElementById("authScreen").hidden = true;
+
+      document.getElementById("appShell").hidden = false;
+
+    });
+
+
+    const logoutButton =
+      document.getElementById("logoutButton");
+
+    logoutButton.addEventListener("click", function () {
+
+      document.getElementById("authScreen").hidden = false;
+
+      document.getElementById("appShell").hidden = true;
+
+    });
+
+  </script>
+
+</body>
+
+</html>
